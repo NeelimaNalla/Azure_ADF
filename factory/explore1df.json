@@ -1,0 +1,9 @@
+{
+	"name": "explore1df",
+	"location": "canadaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f7b31310-75b8-4caa-bc8e-a88aa5cedc53",
+		"tenantId": "56c25d5d-b1b9-4743-b3a5-c879ff92c9fe"
+	}
+}

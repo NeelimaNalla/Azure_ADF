@@ -1,0 +1,75 @@
+{
+	"name": "pipeline2_variable",
+	"properties": {
+		"description": "difference between variable and parameter",
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Arr",
+					"value": "program"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "str",
+					"value": {
+						"value": "@pipeline().Pipeline",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "str",
+					"value": "hi"
+				}
+			}
+		],
+		"parameters": {
+			"test1": {
+				"type": "string"
+			},
+			"test2": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"str": {
+				"type": "String"
+			},
+			"Arr": {
+				"type": "Array"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-02-05T16:03:30Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

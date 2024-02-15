@@ -1,0 +1,30 @@
+{
+	"name": "pipeline4_fail_wait_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Fail1",
+				"type": "Fail",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"message": "error is the code",
+					"errorCode": "101"
+				}
+			},
+			{
+				"name": "Wait1",
+				"description": "delay is inserted in the pipeline\nApi excution_loop ",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-02-05T16:58:44Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

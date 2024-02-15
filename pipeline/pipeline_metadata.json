@@ -1,0 +1,116 @@
+{
+	"name": "pipeline_metadata",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "file_source_ds",
+						"type": "DatasetReference",
+						"parameters": {
+							"folder_name": "source"
+						}
+					},
+					"fieldList": [
+						"childItems",
+						"lastModified",
+						"itemType",
+						"itemName"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "BinaryReadSettings"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "newpiepline",
+					"value": {
+						"value": "@activity('Get Metadata1').output.childItems",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "newpiepline",
+					"value": {
+						"value": "@pipeline().RunId",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"countries": {
+				"type": "Array"
+			},
+			"countrynames": {
+				"type": "String"
+			},
+			"pipeline_values": {
+				"type": "Array"
+			},
+			"pipelinevalue": {
+				"type": "String"
+			},
+			"pipelinevalue1": {
+				"type": "Array"
+			},
+			"pipelineArray": {
+				"type": "Array"
+			},
+			"pipelinestring11": {
+				"type": "String"
+			},
+			"newpiepline": {
+				"type": "Array"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-02-08T15:52:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

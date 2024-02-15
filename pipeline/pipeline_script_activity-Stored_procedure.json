@@ -1,0 +1,37 @@
+{
+	"name": "pipeline_script_activity-Stored_procedure",
+	"properties": {
+		"description": "to execute any kind of script in sql DB or all relational databases",
+		"activities": [
+			{
+				"name": "Script1",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDB_ls",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": "SELECT TOP (1000) [source_database_name]\n      ,[source_table_name]\n      ,[source_system_name]\n      ,[load_type]\n      ,[active_state]\n      ,[target_location_path]\n      ,[target_object_name]\n  FROM [dbo].[configuration]"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-02-12T16:27:45Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

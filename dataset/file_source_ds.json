@@ -1,0 +1,28 @@
+{
+	"name": "file_source_ds",
+	"properties": {
+		"description": "file transfer from source to destination",
+		"linkedServiceName": {
+			"referenceName": "file_ls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folder_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().folder_name",
+					"type": "Expression"
+				},
+				"fileSystem": "data"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
