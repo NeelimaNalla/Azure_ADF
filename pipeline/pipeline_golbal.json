@@ -1,0 +1,30 @@
+{
+	"name": "pipeline_golbal",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "golbal_param",
+					"value": {
+						"value": "@pipeline().globalParameters.abc",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"golbal_param": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
