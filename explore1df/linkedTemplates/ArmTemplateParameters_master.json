@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "explore1df"
+		},
+		"AzureSqlDB_ls_connectionString": {
+			"value": ""
+		},
+		"file_ls_accountKey": {
+			"value": ""
+		},
+		"file_ls_properties_typeProperties_url": {
+			"value": "https://goldenzone.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
