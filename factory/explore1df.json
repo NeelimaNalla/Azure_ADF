@@ -1,5 +1,13 @@
 {
 	"name": "explore1df",
+	"properties": {
+		"globalParameters": {
+			"abc": {
+				"type": "string",
+				"value": "alpha"
+			}
+		}
+	},
 	"location": "canadaeast",
 	"identity": {
 		"type": "SystemAssigned",
