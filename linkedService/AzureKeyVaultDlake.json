@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVaultDlake",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://preparation.vault.azure.net/"
+		}
+	}
+}
